@@ -1,0 +1,16 @@
+main {
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+#sidebar {
+    width: 380px;
+}
+#sidebar .scrollarea {
+    overflow-y: auto;
+}
+#toolframeid {
+    height: 100%;
+}

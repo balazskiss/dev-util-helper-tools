@@ -1,7 +1,7 @@
-window.addEventListener('message', function (e) {
+window.addEventListener('message', function (event) {
   // Get the sent data
   console.log("received data in main")
-  const data = e.data;
+  const data = event.data;
   console.log(data);
   const decoded = JSON.parse(data);
   console.log(decoded);

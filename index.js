@@ -1,4 +1,4 @@
-window.addEventListener('load', (event) => {
+window.addEventListener('load', (event) => {    
     console.log('page is fully loaded');
 
     const container = document.getElementById("container");

@@ -3,13 +3,27 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'unsafe-inline'">
     <title>Hello World!</title>
     <script src="index.js"></script>
+    <script src="../../api/api.js"></script>
+
+    <style>
+      .file-drop-zone {
+        background-color: #eee;
+        border: 3px dashed #aaa;
+        border-radius: 20px;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>Lipo</h1>
-    <input type="file" id="fileInput"/>
+    <div id="drop-zone" class="file-drop-zone">
+      <p>Drag one or more files to this <i>drop zone</i>.</p>
+      <input type="file" id="fileInput"/>
+    </div>
+
     <button id="checkBtn">Check</button>
     <div id="result"></div>
   </body>

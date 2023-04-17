@@ -1,20 +1,27 @@
 window.addEventListener('message', function (event) {
   // Get the sent data
   console.log("received data in main")
-  const data = event.data;
-  console.log(data);
-  const decoded = JSON.parse(data);
-  console.log(decoded);
+  const encodedMessage = event.data;
+  console.log(encodedMessage);
+  const decodedMessage = JSON.parse(encodedMessage);
+  console.log(decodedMessage);
 
-  const modulePath = './packages/' + decoded.package + '/main.js';
+  const package = decodedMessage.package;
+  const method = decodedMessage.method;
+  const requestData = decodedMessage.data;
+
+  const modulePath = './packages/' + package + '/main.js';
   console.log("loading module " + modulePath);
   var reqModule = require(modulePath);
-  if (decoded.params) {
-    const params = decoded.params;
-    reqModule[decoded.method](...params);
-  } else {
-    reqModule[decoded.method]();
-  }
+  reqModule[method](requestData, function(responseData) {
+    console.log("Received response data: ", responseData);
+    var response = {
+      id: decodedMessage.id,
+      data: responseData
+    }
+    const messageStr = JSON.stringify(response);
+    document.getElementById("toolframeid").contentWindow.postMessage(messageStr, '*');
+  });
 });
 
 window.addEventListener('DOMContentLoaded', () => {

@@ -1,7 +1,8 @@
 const { spawn } = require("child_process");
 
-module.exports.pingUrl = function(url) {
-    const ls = spawn("ping", ["-c10", url]);
+module.exports.pingUrl = function(requestData, callback) {
+    const ls = spawn("ping", ["-c10", requestData.url]);
+    callback({});
     ls.stdout.on("data", data => {
         const op = `stdout: ${data}`;
         console.log(`stdout: ${data}`);

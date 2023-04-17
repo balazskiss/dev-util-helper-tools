@@ -1,16 +1,17 @@
+var lipoCheck = function(filePath) {
+    sendRequest('lipo', 'lipoCheck', {
+        filePath: filePath
+    }, function(response) {
+        document.getElementById("result").innerText = response.text;
+    });
+}
+
 window.addEventListener('load', (event) => {
     console.log('lipo page is fully loaded');
 
-    
-    
     document.getElementById('checkBtn').addEventListener('click', () => {
         const filePath = document.getElementById('fileInput').files[0].path;
-        const message = JSON.stringify({
-            package: 'lipo',
-            method: 'lipoCheck',
-            params: [filePath]
-        });
-        window.parent.postMessage(message, '*');
+        lipoCheck(filePath);
     });
 
     document.getElementById('drop-zone').addEventListener('click', (ev) => {
@@ -26,14 +27,7 @@ window.addEventListener('load', (event) => {
         console.log(event.dataTransfer.files[0]);
 
         const filePath = event.dataTransfer.files[0].path;
-        const message = {
-            package: 'lipo',
-            method: 'lipoCheck',
-            params: [filePath]
-        };
-        postMessage(message, function(result) {
-            console.log(result);
-        })
+        lipoCheck(filePath);
     });
 
     document.getElementById('drop-zone').addEventListener('dragOver', (ev) => {
@@ -41,12 +35,4 @@ window.addEventListener('load', (event) => {
         // Prevent default behavior (Prevent file from being opened)
         ev.preventDefault();
     });
-});
-
-window.addEventListener('message', function (e) {
-    // Get the sent data
-    console.log("received data in brew tool")
-    const data = e.data;
-    console.log(data);
-    document.getElementById("result").innerText = data.text;
 });

@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 
-module.exports.nmCheck = function(path) {
-    exec("nm " + path, (error, stdout, stderr) => {
+module.exports.nmCheck = function(requestData, callback) {
+    exec("nm " + requestData.filePath, (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -11,10 +11,8 @@ module.exports.nmCheck = function(path) {
           return;
       }
       console.log(`stdout: ${stdout}`);
-  
-      const resp = {
+      callback({
         text: stdout
-      };
-      document.getElementById("toolframeid").contentWindow.postMessage(resp, '*');
+      })
   });
 }

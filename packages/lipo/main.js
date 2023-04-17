@@ -1,7 +1,7 @@
 const { exec } = require("child_process");
 
-module.exports.lipoCheck = function(path) {
-    exec("lipo -info \"" + path + "\"", (error, stdout, stderr) => {
+module.exports.lipoCheck = function(requestData, callback) {
+    exec("lipo -info \"" + requestData.filePath + "\"", (error, stdout, stderr) => {
       if (error) {
           console.log(`error: ${error.message}`);
           return;
@@ -11,10 +11,8 @@ module.exports.lipoCheck = function(path) {
           return;
       }
       console.log(`stdout: ${stdout}`);
-  
-      const resp = {
+      callback({
         text: stdout
-      };
-      document.getElementById("toolframeid").contentWindow.postMessage(resp, '*');
+      })
   });
 }

@@ -6,10 +6,21 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Hello World!</title>
     <script src="index.js"></script>
+    <script src="../../api/client-api.js"></script>
   </head>
   <body>
     <h1>Brew</h1>
     <button id="brewListPackages" class="btn btn-primary">List packages</button>
-    <div id="result"></div>
+    <div id="loading">Loading...</div>
+    <table id="packagesTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Version</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </body>
 </html>

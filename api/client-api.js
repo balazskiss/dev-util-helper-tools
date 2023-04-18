@@ -25,7 +25,7 @@ window.addEventListener('message', function (event) {
 var messageCounter = 0;
 var messageQueue = {};
 
-const postMessage = function(data, callback) {
+const postMessage = function (data, callback) {
     messageCounter += 1;
     const messageID = "message-" + messageCounter;
     let message = data;
@@ -36,7 +36,7 @@ const postMessage = function(data, callback) {
     window.parent.postMessage(messageStr, '*');
 }
 
-const sendRequest = function(package, method, data, callback) {
+const sendRequest = function (package, method, data, callback) {
     const message = {
         package: package,
         method: method,
@@ -44,3 +44,72 @@ const sendRequest = function(package, method, data, callback) {
     }
     postMessage(message, callback);
 }
+
+
+class FileDropZone extends HTMLElement {
+    constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        const styles = `
+            :host {
+                display: block;
+                background-color: #eee;
+                border: 3px dashed #aaa;
+                border-radius: 20px;
+                padding: 10px;
+            }
+        `;
+        const styleSheet = new CSSStyleSheet();
+        styleSheet.replaceSync(styles);
+        shadow.adoptedStyleSheets = [styleSheet];
+
+        const text = document.createElement("p");
+        text.innerHTML = "Drag one or more files to this <i>drop zone</i>."
+        shadow.appendChild(text);
+
+        const input = document.createElement('input');
+        input.type = 'file';
+        shadow.appendChild(input);
+
+        this.addEventListener('click', (ev) => {
+            console.log('click');
+            input.click();
+        });
+
+        this.addEventListener('drop', (event) => {
+            console.log('File(s) dropped');
+            // Prevent default behavior (Prevent file from being opened)
+            event.preventDefault();
+            console.log(event);
+            console.log(event.dataTransfer.files.length);
+            console.log(event.dataTransfer.files[0]);
+
+            const file = event.dataTransfer.files[0];
+            const customEvent = new CustomEvent('fileselected', { detail: { file } });
+            this.dispatchEvent(customEvent);
+        });
+
+        this.addEventListener("dragstart", (event) => {
+            console.log('dragstart');
+          });
+
+        this.addEventListener('dragOver', (event) => {
+            console.log('File(s) in drop zone');
+            // Prevent default behavior (Prevent file from being opened)
+            event.preventDefault();
+        });
+
+        input.addEventListener('change', (event) => {
+            event.preventDefault();
+            const file = input.files[0];
+            console.log('Selected file:', file);
+            const customEvent = new CustomEvent('fileselected', { detail: { file } });
+            this.dispatchEvent(customEvent);
+          });
+
+        
+    }
+}
+
+customElements.define('file-drop-zone', FileDropZone);

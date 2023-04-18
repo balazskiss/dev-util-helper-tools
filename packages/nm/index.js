@@ -9,8 +9,9 @@ var nmCheck = function(filePath) {
 window.addEventListener('load', (event) => {
     console.log('nm page is fully loaded');
 
-    document.getElementById('checkBtn').addEventListener('click', () => {
-        const filePath = document.getElementById('fileInput').files[0].path;
+    document.getElementById('drop-zone').addEventListener('fileselected', (ev) => {
+        console.log(ev);
+        const filePath = ev.detail.file.path;
         nmCheck(filePath);
     });
 });

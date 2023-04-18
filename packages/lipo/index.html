@@ -7,24 +7,12 @@
     <title>Hello World!</title>
     <script src="index.js"></script>
     <script src="../../api/client-api.js"></script>
-
-    <style>
-      .file-drop-zone {
-        background-color: #eee;
-        border: 3px dashed #aaa;
-        border-radius: 20px;
-        padding: 10px;
-      }
-    </style>
   </head>
   <body>
     <h1>Lipo</h1>
-    <div id="drop-zone" class="file-drop-zone">
-      <p>Drag one or more files to this <i>drop zone</i>.</p>
-      <input type="file" id="fileInput"/>
-    </div>
 
-    <button id="checkBtn">Check</button>
+    <file-drop-zone id="drop-zone"></file-drop-zone>
+
     <div id="result"></div>
   </body>
 </html>

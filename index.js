@@ -31,24 +31,9 @@ window.addEventListener('load', (event) => {
             description: "Generates a random string."
         },
         {
-            name: "xcode",
-            title: "Xcode",
-            description: "This is the description."
-        },
-        {
             name: "base64",
-            title: "Base64 Encode",
-            description: "This is the description."
-        },
-        {
-            name: "base64",
-            title: "Base64 Decode",
-            description: "This is the description."
-        },
-        {
-            name: "random",
-            title: "Random Text",
-            description: "This is the description."
+            title: "Base64",
+            description: "Encode and decode base64 strings."
         }
     ]
 

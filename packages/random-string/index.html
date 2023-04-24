@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+    <script src="index.js"></script>
+    <script src="../../api/client-api.js"></script>
+  </head>
+  <body>
+    <h1>Random String</h1>
+    <label for="numberOfCharacters">Number of characters: </label><input id="numberOfCharacters" value="20" />
+    <button id="generateBtn">Generate</button>
+    <div id="result"></div>
+  </body>
+</html>

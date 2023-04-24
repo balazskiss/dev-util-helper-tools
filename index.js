@@ -26,6 +26,11 @@ window.addEventListener('load', (event) => {
             description: "Measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source."
         },
         {
+            name: "random-string",
+            title: "Random String",
+            description: "Generates a random string."
+        },
+        {
             name: "xcode",
             title: "Xcode",
             description: "This is the description."

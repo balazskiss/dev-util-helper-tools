@@ -1,23 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-    <script src="index.js"></script>
-    <script src="../../api/client-api.js"></script>
-  </head>
-  <body>
-    <h1>Random String</h1>
-    <div>
-      <label for="numberOfCharacters">Number of characters: </label><input id="numberOfCharacters" value="20" />
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../api/client-api.js"></script>
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Random String</h1>
+
+  <div class="panel">
+    <div class="row">
+      <label for="numberOfCharacters" class="col-sm-6 col-form-label">Number of characters: </label>
+      <div class="col-sm-6">
+        <input id="numberOfCharacters" value="20" class="form-control" />
+      </div>
     </div>
-    <div>
-      <label for="numberOfStrings">Number of strings: </label><input id="numberOfStrings" value="5" />
+    <div class="row">
+      <label for="numberOfStrings" class="col-sm-6 col-form-label">Number of strings: </label>
+      <div class="col-sm-6">
+        <input id="numberOfStrings" value="5"  class="form-control" />
+      </div>
     </div>
-    
-    <button id="generateBtn">Generate</button>
-    <div id="result"></div>
-  </body>
+    <button id="generateBtn" class="btn btn-primary">Generate</button>
+  </div>
+
+  <div id="result" class="panel"></div>
+</body>
+
 </html>

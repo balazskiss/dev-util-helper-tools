@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <title>Dev Util Helper Tools</title>
+  <title>Bonbon</title>
 
-  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="index.css" rel="stylesheet">
 
   <script src="index.js"></script>
@@ -32,8 +32,7 @@
         <div id="container"></div>
 
         <template id="tool-category-template">
-          class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
-          <div class="d-flex w-100 align-items-center justify-content-between">
+          <div class="category d-flex w-100 align-items-center justify-content-between">
             <strong class="title mb-1">Category Title</strong>
           </div>
         </template>
@@ -52,14 +51,14 @@
     </div>
 
 
-    <div class="d-flex flex-column flex-fill">
+    <div id="tool-content" class="d-flex flex-column flex-fill">
       <iframe name="toolframe" id="toolframeid"></iframe>
     </div>
 
 
   </main>
 
-  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

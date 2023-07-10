@@ -40,7 +40,7 @@ window.addEventListener('load', (event) => {
             name: "count",
             title: "Count",
             category: "Text",
-            description: "Count words and lines."
+            description: "Count characters, words and lines."
         },
         {
             name: "sort",
@@ -92,7 +92,7 @@ window.addEventListener('load', (event) => {
         },
         {
             name: "minify-json",
-            title: "Prettify JSON",
+            title: "Minify JSON",
             category: "JSON",
             description: "Convert JSON to minified format."
         },
@@ -130,13 +130,13 @@ window.addEventListener('load', (event) => {
 
     function createToolListItem(tool) {
         const target = "packages/" + tool.name + "/index.html";
-            const toolListItem = toolListItemTemplate.content.firstElementChild.cloneNode(true);
-            let title = toolListItem.querySelector(".title");
-            let description = toolListItem.querySelector(".description");
-            toolListItem.setAttribute("href", target);
-            title.textContent = tool.title;
-            description.textContent = tool.description;
-            return toolListItem;
+        const toolListItem = toolListItemTemplate.content.firstElementChild.cloneNode(true);
+        let title = toolListItem.querySelector(".title");
+        let description = toolListItem.querySelector(".description");
+        toolListItem.setAttribute("href", target);
+        title.textContent = tool.title;
+        description.textContent = tool.description;
+        return toolListItem;
     }
 
     let categories = getSortedCategories(tools);

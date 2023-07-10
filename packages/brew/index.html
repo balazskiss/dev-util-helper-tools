@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-    <script src="index.js"></script>
+    
+    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../index.css" rel="stylesheet">
+    <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../api/client-api.js"></script>
+
+    <script src="index.js"></script>
   </head>
   <body>
     <h1>Brew</h1>
 
     <button id="brewListPackages" class="btn btn-primary">List packages</button>
-    <div id="loading">Loading...</div>
-    <table id="packagesTable">
+    <div id="loading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <table id="packagesTable" class="table table-striped w-auto">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Version</th>
+          <th scope="col">Name</th>
+          <th scope="col">Version</th>
         </tr>
       </thead>
       <tbody>

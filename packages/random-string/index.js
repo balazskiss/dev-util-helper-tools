@@ -6,10 +6,11 @@ var generateBtn = function(numberOfCharacters, numberOfStrings) {
     }, function(response) {
         document.getElementById("result").innerText = response;
     });
+    el
 }
 
 window.addEventListener('load', (event) => {
-    console.log('ping page is fully loaded');
+    console.log('random-string page is fully loaded');
 
     document.getElementById('generateBtn').addEventListener('click', () => {
         const numberOfCharacters = document.getElementById('numberOfCharacters').value;

@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Dev Util Helper Tools</title>
 
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Dev Util Helper Tools</title>
 
-    <script src="index.js"></script>
-  </head>
-  <body>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
 
-    <main class="d-flex flex-nowrap">
-      <div id="sidebar" class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
-        <div class="list-group list-group-flush border-bottom scrollarea">
+  <script src="index.js"></script>
+</head>
 
-          <div id="container"></div>
+<body>
 
-          <template id="template">
-            <a href="packages/brew/index.html" target="toolframe" class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
-              <div class="d-flex w-100 align-items-center justify-content-between">
-                <strong class="title mb-1">Title</strong>
-                <small>Wed</small>
-              </div>
-              <div class="description col-10 mb-1 small">Description</div>
-            </a>
-          </template>
+  <main class="d-flex flex-nowrap">
+    <div id="sidebar" class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
 
-
+      <div class="row">
+        <div>
+          <div class="input-group">
+            <input class="form-control border" type="search" placeholder="Search..." id="example-search-input">
+          </div>
         </div>
       </div>
 
+      <div class="list-group list-group-flush scrollarea">
 
-      <div class="d-flex flex-column flex-fill">
-        <iframe name="toolframe" id="toolframeid"></iframe>
+        <div id="container"></div>
+
+        <template id="tool-category-template">
+          class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
+          <div class="d-flex w-100 align-items-center justify-content-between">
+            <strong class="title mb-1">Category Title</strong>
+          </div>
+        </template>
+
+        <template id="tool-list-item-template">
+          <a href="packages/example/index.html" target="toolframe"
+            class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
+            <div class="d-flex w-100 align-items-center justify-content-between">
+              <strong class="title mb-1">Title</strong>
+            </div>
+            <div class="description col-10 mb-1 small hidden">Description</div>
+          </a>
+        </template>
+
       </div>
+    </div>
 
 
-    </main>
+    <div class="d-flex flex-column flex-fill">
+      <iframe name="toolframe" id="toolframeid"></iframe>
+    </div>
 
-    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+
+  </main>
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

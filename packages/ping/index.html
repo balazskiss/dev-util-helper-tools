@@ -1,26 +1,29 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    
-    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../index.css" rel="stylesheet">
-    <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../api/client-api.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
 
-    <script src="index.js"></script>
-  </head>
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../api/client-api.js"></script>
 
-  <body>
-    <h1>Ping</h1>
-    <div class="panel">
-      <input id="urlInput" value="api.musicate.app" />
-      <button class="btn btn-primary" id="pingBtn">Ping</button>
-    </div>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Ping</h1>
+  <div class="panel">
+    <input id="urlInput" value="api.musicate.app" />
+    <button class="btn btn-primary" id="pingBtn">Ping</button>
+  </div>
+
+  <div class="panel">
     <div id="result"></div>
-  </body>
+  </div>
+</body>
 
 </html>

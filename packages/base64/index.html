@@ -1,18 +1,34 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-    <script src="index.js"></script>
-    <script src="../../api/client-api.js"></script>
-  </head>
-  <body>
-    <h1>Base64 String</h1>
-    <label for="inputString">Input: </label>
-    <textarea id="inputString"></textarea>
-    <button id="encodeBtn">Encode</button>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../api/client-api.js"></script>
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Base64 String</h1>
+  <div class="panel">
+    <div class="mb-3">
+    <textarea id="inputString" class="form-control" rows="5"></textarea>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" id="encodeBtn">Count</button>
+    </div>
+  </div>
+
+  <div class="panel">
     <div id="result"></div>
-  </body>
+  </div>
+</body>
+
 </html>

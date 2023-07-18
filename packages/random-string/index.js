@@ -1,12 +1,26 @@
-var generateBtn = function(numberOfCharacters, numberOfStrings) {
+function generateRandomString(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+function generateStrings(numberOfStrings, numberOfCharacters) {
+    let result = "";
+    for(let i = 0; i < numberOfStrings; i++) {
+        let str = generateRandomString(numberOfCharacters);
+        result += str + "\n";
+    }
+    return result;
+}
+
+const generateBtn = function(numberOfCharacters, numberOfStrings) {
     document.getElementById("result").innerText = '';
-    sendRequest('random-string', 'generateString', {
-        numberOfCharacters: numberOfCharacters,
-        numberOfStrings: numberOfStrings
-    }, function(response) {
-        document.getElementById("result").innerText = response;
-    });
-    el
+    let result = generateStrings(numberOfStrings, numberOfCharacters);
+    document.getElementById("result").innerText = result;
 }
 
 window.addEventListener('load', (event) => {

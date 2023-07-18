@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../index.css" rel="stylesheet">
+    <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../api/client-api.js"></script>
+
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <h1>Count</h1>
+
+    <div class="panel">
+
+        <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="textfield-tab" data-bs-toggle="tab" data-bs-target="#textfield-tab-pane"
+                    type="button" role="tab" aria-controls="textfield-tab-pane" aria-selected="true"><i class="bi-alarm"></i>Text field</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="file-tab" data-bs-toggle="tab" data-bs-target="#file-tab-pane"
+                    type="button" role="tab" aria-controls="file-tab-pane" aria-selected="false">File</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="textfield-tab-pane" role="tabpanel" aria-labelledby="textfield-tab"
+                tabindex="0">
+                <form>
+                    <div class="mb-3">
+                        <textarea id="textInput" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" id="actionBtn">Count</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="file-tab-pane" role="tabpanel" aria-labelledby="file-tab" tabindex="0">
+                <file-drop-zone id="drop-zone"></file-drop-zone>
+            </div>
+        </div>
+
+    </div>
+    <div class="panel">
+        <div>Characters: <span id="character-count">0</span></div>
+        <div>Words: <span id="word-count">0</span></div>
+        <div>Sentences: <span id="sentence-count">0</span></div>
+        <div>Lines: <span id="line-count">0</span></div>
+    </div>
+</body>
+
+</html>

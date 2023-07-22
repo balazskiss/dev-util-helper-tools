@@ -31,6 +31,12 @@ window.addEventListener('load', (event) => {
             description: "Measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source."
         },
         {
+            name: "whois",
+            title: "Whois",
+            category: "Network",
+            description: "Internet domain name and network number directory service."
+        },
+        {
             name: "random-string",
             title: "Random String",
             category: "Text",

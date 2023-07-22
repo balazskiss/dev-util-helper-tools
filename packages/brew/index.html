@@ -1,37 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    
-    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../index.css" rel="stylesheet">
-    <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../api/client-api.js"></script>
 
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <h1>Brew</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
 
-  
-    <button id="brewListPackages" class="btn btn-primary">List packages</button>
-    <div id="loading">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../api/client-api.js"></script>
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Brew</h1>
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="list-tab" data-bs-toggle="tab" data-bs-target="#list-tab-pane" type="button"
+        role="tab" aria-controls="list-tab-pane" aria-selected="true">Package List</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-tab-pane" type="button"
+        role="tab" aria-controls="info-tab-pane" aria-selected="false">Package Info</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+
+    <div class="tab-pane fade show active" id="list-tab-pane" role="tabpanel" aria-labelledby="list-tab" tabindex="0">
+      <div class="panel">
+        <button id="brewListPackages" class="btn btn-primary">Refresh list</button>
+      </div>
+      <div class="panel">
+        <div id="loading" class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <table id="packagesTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Version</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
-    <table id="packagesTable" class="table table-striped w-auto">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Version</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </body>
+
+    <div class="tab-pane fade" id="info-tab-pane" role="tabpanel" aria-labelledby="info-tab" tabindex="0">
+      <div class="panel">
+        <input id="packageNameInput" value="wget" />
+        <button class="btn btn-primary" id="runBtn">Run</button>
+      </div>
+      <div class="panel">
+        <div id="info-loading" class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <div id="result"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
 </html>

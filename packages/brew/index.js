@@ -9,23 +9,48 @@ var loadPackageList = function() {
         table.innerHTML = '';
         for (var index = 0; index < response.packages.length; index++) {
             let package = response.packages[index];
-            var row = table.insertRow(0);
+            var row = table.insertRow(index);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
-            cell1.innerHTML = package.name;
+            cell1.innerHTML = "<a href='#' onclick='showPackageInfo(\"" + package.name + "\");'>" + package.name + "</a>";
             cell2.innerHTML = package.version;
         }
 
         document.getElementById("loading").style.display = "none";
-        document.getElementById("packagesTable").style.display = "block";
+        document.getElementById("packagesTable").style.display = "table";
+    })
+}
+
+var showPackageInfo = function(packageName) {
+    const infoTab = bootstrap.Tab.getInstance("#info-tab");
+    infoTab.show();
+    document.getElementById("packageNameInput").value = packageName;
+    getPackageInfo(packageName);
+}
+
+var getPackageInfo = function(packageName) {
+    document.getElementById("info-loading").style.display = "block";
+    document.getElementById("result").innerText = "";
+    sendRequest('brew', 'getPackageInfo', {packageName: packageName}, function(response) {
+        console.log("postMessage callback", response);
+        document.getElementById("info-loading").style.display = "none";
+        document.getElementById("result").innerText = response.packageInfo;
     })
 }
 
 window.addEventListener('load', (event) => {
     console.log('page is fully loaded');
 
+    const infoTab = new bootstrap.Tab('#info-tab');
+    document.getElementById("info-loading").style.display = "none";
+
     document.getElementById('brewListPackages').addEventListener('click', () => {
         loadPackageList();
+    });
+
+    document.getElementById('runBtn').addEventListener('click', () => {
+        const packageName = document.getElementById('packageNameInput').value;
+        getPackageInfo(packageName);
     });
 
     loadPackageList();

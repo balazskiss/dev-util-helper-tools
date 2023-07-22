@@ -1,20 +1,18 @@
 window.addEventListener('message', function (event) {
   // Get the sent data
-  console.log("received data in main")
+  console.log("[preload.js] received data in main", event)
   const encodedMessage = event.data;
-  console.log(encodedMessage);
   const decodedMessage = JSON.parse(encodedMessage);
-  console.log(decodedMessage);
 
   const package = decodedMessage.package;
   const method = decodedMessage.method;
   const requestData = decodedMessage.data;
 
   const modulePath = './packages/' + package + '/main.js';
-  console.log("loading module " + modulePath);
+  console.log("[preload.js] loading module " + modulePath);
   var reqModule = require(modulePath);
   reqModule[method](requestData, function(responseData) {
-    console.log("Received response data: ", responseData);
+    console.log("[preload.js] Received response data: ", responseData);
     var response = {
       id: decodedMessage.id,
       data: responseData

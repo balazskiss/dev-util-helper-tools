@@ -1,23 +1,18 @@
 window.addEventListener('load', (event) => {
-    console.log('Tool API loaded');
+    console.log('[client-api] Tool API loaded');
 
     // This event handler is needed to enable drop-zone events.
     document.body.addEventListener("dragover", evt => {
         evt.preventDefault();
     });
-
-
 })
 
 window.addEventListener('message', function (event) {
     // Get the sent data
-    console.log("received data")
+    console.log("[client-api] received data", event)
     const data = event.data;
     const decodedMessage = JSON.parse(data);
     const messageID = decodedMessage.id;
-    console.log(data);
-    console.log(messageQueue);
-    console.log(decodedMessage);
     const callback = messageQueue[messageID];
     callback(decodedMessage.data);
 });
@@ -31,7 +26,7 @@ const postMessage = function (data, callback) {
     let message = data;
     message.id = messageID;
     messageQueue[messageID] = callback;
-    console.log("Posting message: ", message);
+    console.log("[client-api] Posting message: ", message);
     const messageStr = JSON.stringify(message);
     window.parent.postMessage(messageStr, '*');
 }
@@ -73,15 +68,14 @@ class FileDropZone extends HTMLElement {
         shadow.appendChild(input);
 
         this.addEventListener('click', (ev) => {
-            console.log('click');
+            console.log('[client-api] click');
             input.click();
         });
 
         this.addEventListener('drop', (event) => {
-            console.log('File(s) dropped');
+            console.log('[client-api] File(s) dropped', event);
             // Prevent default behavior (Prevent file from being opened)
             event.preventDefault();
-            console.log(event);
             console.log(event.dataTransfer.files.length);
             console.log(event.dataTransfer.files[0]);
 
@@ -91,11 +85,11 @@ class FileDropZone extends HTMLElement {
         });
 
         this.addEventListener("dragstart", (event) => {
-            console.log('dragstart');
+            console.log('[client-api] dragstart');
           });
 
         this.addEventListener('dragOver', (event) => {
-            console.log('File(s) in drop zone');
+            console.log('[client-api] File(s) in drop zone');
             // Prevent default behavior (Prevent file from being opened)
             event.preventDefault();
         });
@@ -103,12 +97,10 @@ class FileDropZone extends HTMLElement {
         input.addEventListener('change', (event) => {
             event.preventDefault();
             const file = input.files[0];
-            console.log('Selected file:', file);
+            console.log('[client-api] Selected file:', file);
             const customEvent = new CustomEvent('fileselected', { detail: { file } });
             this.dispatchEvent(customEvent);
           });
-
-        
     }
 }
 

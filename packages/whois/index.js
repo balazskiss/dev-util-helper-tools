@@ -1,25 +1,23 @@
-var pingUrl = function(url) {
+var getWhoisInfo = function (url) {
     document.getElementById("result").innerText = '';
-    sendRequest('ping', 'pingUrl', {
+    sendRequest('whois', 'getWhoisInfo', {
         url: url
-    }, function(response) {
+    }, function (response) {
     });
 }
 
 window.addEventListener('load', (event) => {
-    console.log('[ping] ping page is fully loaded');
-
-    document.getElementById('pingBtn').addEventListener('click', () => {
+    document.getElementById('runBtn').addEventListener('click', () => {
         const url = document.getElementById('urlInput').value;
-        pingUrl(url);
+        getWhoisInfo(url);
     });
 });
 
 window.addEventListener('message', function (e) {
     const data = e.data;
-    console.log("[ping] message ", data);
+    console.log("[whois] message", data);
     if (!data || !data.text) {
         return;
     }
     document.getElementById("result").innerText += data.text;
-  });
+});

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../api/client-api.js"></script>
+
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <h1>Xcode</h1>
+
+  <div class="panel">
+    <h2>Xcode Version</h2>
+    <div id="version-result"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Xcode Path</h2>
+    <div id="path-result"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Xcode Derived Data</h2>
+    <div id="derived-data-size-result"></div>
+    <button class="btn btn-danger" id="remove-derived-data-btn">Remove Derived Data</button>
+  </div>
+
+  <div class="panel">
+    <h2>SDKs</h2>
+    <div id="sdks-result"></div>
+  </div>
+</body>
+
+</html>

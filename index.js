@@ -103,8 +103,14 @@ window.addEventListener('load', (event) => {
             description: "Convert JSON to minified format."
         },
         {
-            name: "xcode-clean",
-            title: "Xcode Clean",
+            name: "xcode",
+            title: "Xcode",
+            category: "Xcode",
+            description: "Clean xcode folders."
+        },
+        {
+            name: "xcode-simulators",
+            title: "Xcode Simulators",
             category: "Xcode",
             description: "Clean xcode folders."
         },

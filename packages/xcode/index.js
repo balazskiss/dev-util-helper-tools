@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var getXcodeVersion = function () {
     sendRequest('xcode', 'getXcodeVersion', {}, function (response) {
         document.getElementById("version-result").innerText += response.text;

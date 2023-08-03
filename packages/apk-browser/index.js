@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 let nextItemID = 0;
 
 const formatSize = function(numberOfBytes) {

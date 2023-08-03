@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var getXcodeSimulators = function () {
     sendRequest('xcode-simulators', 'getXcodeSimulators', {}, function (response) {
         document.getElementById("simulators-result").innerText += response.text;

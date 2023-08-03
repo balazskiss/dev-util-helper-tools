@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var lipoCheck = function(filePath) {
     sendRequest('lipo', 'lipoCheck', {
         filePath: filePath

@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var loadPackageList = function() {
     document.getElementById("packagesTable").style.display = "none";
     document.getElementById("loading").style.display = "block";
@@ -8,12 +10,18 @@ var loadPackageList = function() {
         var table = document.getElementById("packagesTable").getElementsByTagName('tbody')[0];
         table.innerHTML = '';
         for (var index = 0; index < response.packages.length; index++) {
-            let package = response.packages[index];
+            let brewPackage = response.packages[index];
             var row = table.insertRow(index);
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
-            cell1.innerHTML = "<a href='#' onclick='showPackageInfo(\"" + package.name + "\");'>" + package.name + "</a>";
-            cell2.innerHTML = package.version;
+            var brewPackageNameLink = document.createElement('a');
+            brewPackageNameLink.href = "#";
+            brewPackageNameLink.onclick = function() {
+                showPackageInfo(brewPackage.name);
+            }
+            brewPackageNameLink.appendChild(document.createTextNode(brewPackage.name));
+            cell1.appendChild(brewPackageNameLink);
+            cell2.innerHTML = brewPackage.version;
         }
 
         document.getElementById("loading").style.display = "none";

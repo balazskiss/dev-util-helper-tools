@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var nmCheck = function(filePath) {
     sendRequest('nm', 'nmCheck', {
         filePath: filePath

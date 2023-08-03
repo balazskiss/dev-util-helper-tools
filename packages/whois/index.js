@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var getWhoisInfo = function (url) {
     document.getElementById("result").innerText = '';
     sendRequest('whois', 'getWhoisInfo', {

@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var encode = function(str) {
     document.getElementById("result").innerText = '';
     sendRequest('base64', 'encode', {

@@ -1,3 +1,5 @@
+import { sendRequest } from "../../src/client-api.js";
+
 var pingUrl = function(url) {
     document.getElementById("result").innerText = '';
     sendRequest('ping', 'pingUrl', {

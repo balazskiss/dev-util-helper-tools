@@ -60,16 +60,10 @@ export const tools = [
         description: "Encode and decode base64 strings."
     },
     {
-        name: "binary",
-        title: "Binary",
+        name: "number-base-converter",
+        title: "Number Base Converter",
         category: "Maths",
-        description: "Convert number to binary."
-    },
-    {
-        name: "hex",
-        title: "Hex",
-        category: "Maths",
-        description: "Convert number to hexadecimal."
+        description: "Convert number to another number base."
     },
     {
         name: "lcm",
@@ -84,16 +78,10 @@ export const tools = [
         description: "Greatest common divisor."
     },
     {
-        name: "prettify-json",
-        title: "Prettify JSON",
+        name: "format-json",
+        title: "Format JSON",
         category: "JSON",
-        description: "Convert JSON to human readable format."
-    },
-    {
-        name: "minify-json",
-        title: "Minify JSON",
-        category: "JSON",
-        description: "Convert JSON to minified format."
+        description: "MInify or prettify JSON strings."
     },
     {
         name: "xcode",

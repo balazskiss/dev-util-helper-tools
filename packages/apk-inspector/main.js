@@ -37,7 +37,8 @@ function getFilesAndSizesRecursive(directoryPath) {
             // If it's a directory, recursively call the function for subdirectory
             getFilesAndSizesRecursive(filePath)
               .then(subdirFilesList => {
-                filesList.push({ name: file, size: 0, files: subdirFilesList});
+                const totalSize = subdirFilesList.reduce((acc, file) => acc + file.size, 0);
+                filesList.push({ name: file, size: totalSize, files: subdirFilesList});
                 pending--;
                 if (pending === 0) {
                   resolve(filesList);

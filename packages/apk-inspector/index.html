@@ -14,27 +14,6 @@
 </head>
 
 <body>
-
-  <template id="file-tree-file-template">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <span class="file-name">File name</span>
-      <span class="file-size">14</span>
-    </li>
-  </template>
-
-  <template id="file-tree-dir-template">
-    <a data-bs-toggle="collapse" href="#collapseExample"
-      class="list-group-item d-flex justify-content-between align-items-center">
-      <b><span class="file-name">Directory name</span></b>
-      <span class="file-size">14</span>
-    </a>
-  </template>
-
-  <template id="file-tree-dir-files-template">
-    <ul id="collapseExample" class="dir-files list-group collapse" style="padding-left: 20px;"></ul>
-  </template>
-
-
   <h1>APK Browser</h1>
 
   <div class="panel">
@@ -43,6 +22,7 @@
 
   <div class="panel">
     <div id="result">
+      <file-tree id="custom-file-tree"></file-tree>
       <ul id="file-tree" class="list-group">
       </ul>
     </div>

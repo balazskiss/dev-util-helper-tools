@@ -43,7 +43,7 @@ export class FileDropZone extends HTMLElement {
 
         this.addEventListener("dragstart", (event) => {
             console.log('[client-api] dragstart');
-          });
+        });
 
         this.addEventListener('dragOver', (event) => {
             console.log('[client-api] File(s) in drop zone');
@@ -57,7 +57,7 @@ export class FileDropZone extends HTMLElement {
             console.log('[client-api] Selected file:', file);
             const customEvent = new CustomEvent('fileselected', { detail: { file } });
             this.dispatchEvent(customEvent);
-          });
+        });
     }
 }
 

@@ -1,4 +1,5 @@
 import './elements/FileDropZone.js'
+import './elements/FileTree.js'
 
 window.addEventListener('load', (event) => {
     console.log('[client-api] Tool API loaded');

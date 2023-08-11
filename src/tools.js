@@ -108,8 +108,8 @@ export const tools = [
         description: "Clean xcode folders."
     },
     {
-        name: "apk-browser",
-        title: "APK browser",
+        name: "apk-inspector",
+        title: "APK Inspector",
         category: "Android",
         description: "Browse the contents of APK files."
     },

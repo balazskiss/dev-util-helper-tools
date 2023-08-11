@@ -2,7 +2,7 @@ export const tools = [
     {
         name: "brew",
         title: "Brew",
-        category: "Binary",
+        category: "System",
         description: "The Missing Package Manager for macOS (or Linux)"
     },
     {

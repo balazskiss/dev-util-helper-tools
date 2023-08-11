@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+const { runCommand } = require("../../src/server/command");
 const fs = require('fs');
 const path = require('path');
 
@@ -57,21 +57,6 @@ function getFilesAndSizesRecursive(directoryPath) {
         });
       });
     });
-  });
-}
-
-runCommand = function(command, callback) {
-  exec(command, (error, stdout, stderr) => {
-      if (error) {
-          console.log(`error: ${error.message}`);
-          return;
-      }
-      if (stderr) {
-          console.log(`stderr: ${stderr}`);
-          return;
-      }
-      console.log(`stdout: ${stdout}`);
-      callback(stdout)
   });
 }
 

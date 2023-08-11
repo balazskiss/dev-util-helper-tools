@@ -81,7 +81,7 @@ export const tools = [
         name: "format-json",
         title: "Format JSON",
         category: "JSON",
-        description: "MInify or prettify JSON strings."
+        description: "Minify or prettify JSON strings."
     },
     {
         name: "xcode",

@@ -10,7 +10,7 @@ var hashMD5 = function(str) {
 }
 
 window.addEventListener('load', (event) => {
-    console.log('ping page is fully loaded');
+    console.log('md5 page is fully loaded');
 
     document.getElementById('encodeBtn').addEventListener('click', () => {
         const inputStr = document.getElementById('inputString').value;

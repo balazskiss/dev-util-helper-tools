@@ -33,7 +33,7 @@ function getArrayOfNumbersFromString(str) {
 }
 
 window.addEventListener('load', (event) => {
-    console.log('ping page is fully loaded');
+    console.log('lcm page is fully loaded');
 
     document.getElementById('calculateBtn').addEventListener('click', () => {
         const inputStr = document.getElementById('inputString').value;

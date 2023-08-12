@@ -19,7 +19,7 @@ const prettifyJSON = function (json) {
 }
 
 window.addEventListener('load', (event) => {
-    console.log('ping page is fully loaded');
+    console.log('format-json page is fully loaded');
 
     document.getElementById('prettifyBtn').addEventListener('click', () => {
         const inputStr = document.getElementById('inputString').value;

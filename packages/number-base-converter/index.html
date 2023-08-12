@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+  <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../index.css" rel="stylesheet">
+  <script src="../../libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="index.js" type="module"></script>
+</head>
+
+<body>
+  <h1>Number Base Converter</h1>
+
+  <div class="panel">
+    <div class="row">
+      <label for="base2" class="col-sm-6 col-form-label">Base 2 (binary): </label>
+      <div class="col-sm-6">
+        <input id="base2" class="form-control" />
+      </div>
+    </div>
+    <div class="row">
+      <label for="base8" class="col-sm-6 col-form-label">Base 8 (octal): </label>
+      <div class="col-sm-6">
+        <input id="base8" class="form-control" />
+      </div>
+    </div>
+    <div class="row">
+      <label for="base10" class="col-sm-6 col-form-label">Base 10 (decimal): </label>
+      <div class="col-sm-6">
+        <input id="base10" class="form-control" />
+      </div>
+    </div>
+    <div class="row">
+      <label for="base16" class="col-sm-6 col-form-label">Base 16 (hexadecimal): </label>
+      <div class="col-sm-6">
+        <input id="base16" class="form-control" />
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

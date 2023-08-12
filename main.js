@@ -2,15 +2,14 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 1400,
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
-  win.loadFile('index.html')
+  mainWindow.loadFile('index.html')
 }
 
 app.on('window-all-closed', () => {
